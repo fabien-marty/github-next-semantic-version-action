@@ -1,0 +1,49 @@
+name: 'Hello World'
+description: 'Greet someone and record the time'
+inputs:
+  github-token:
+    description: "GitHub Token"
+    required: true
+  log-level:
+    description: 'Log Level (DEBUG, INFO, WARNING)'
+    required: false
+    default: 'INFO'
+  major-labels:
+    description: 'Major Labels (coma separated)'
+    required: false
+    default: 'major,breaking,Type: Major'
+  minor-labels:
+    description: 'Minor Labels (coma separated)'
+    required: false
+    default: 'feature,Type: Feature,Type: Minor'
+  ignore-labels:
+    description: 'Ignore Labels (coma separated)'
+    required: false
+    default: 'Type: Hidden'
+  dont-increment-if-no-pr:
+    description: 'Do not increment if no PR found (or only ignored PRs)'
+    required: false
+    default: 'false'
+  repository:
+    description: "Repository"
+    required: true
+  repository-owner:
+    description: "Repository owner"
+    required: true
+outputs:
+  latest-version:
+    description: 'Latest version'
+  next-version:
+    description: 'Next version'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    LOG_LEVEL: ${{ inputs.log-level }}
+    GITHUB_TOKEN: ${{ inputs.github-token }}
+    GITHUB_REPOSITORY: ${{ inputs.repository }}
+    GITHUB_REPOSITORY_OWNER: ${{ inputs.repository-owner }}
+    GNSV_MAJOR_LABELS: ${{ inputs.major-labels }}
+    GNSV_MINOR_LABELS: ${{ inputs.minor-labels }}
+    GNSV_IGNORE_LABELS: ${{ inputs.ignore-labels }}
+    DONT_INCREMENT_IF_NO_PR: ${{ inputs.dont-increment-if-no-pr }}
