@@ -30,6 +30,10 @@ inputs:
   repository-owner:
     description: "Repository owner"
     required: true
+  consider-also-non-merged-prs:
+    description: "Consider also non-merged PRs"
+    required: false
+    default: 'false'
 outputs:
   latest-version:
     description: 'Latest version'
@@ -46,4 +50,5 @@ runs:
     GNSV_MAJOR_LABELS: ${{ inputs.major-labels }}
     GNSV_MINOR_LABELS: ${{ inputs.minor-labels }}
     GNSV_IGNORE_LABELS: ${{ inputs.ignore-labels }}
-    DONT_INCREMENT_IF_NO_PR: ${{ inputs.dont-increment-if-no-pr }}
+    DONT_DONT_INCREMENT_IF_NO_PR: ${{ inputs.dont-increment-if-no-pr }}
+    GNSV_CONSIDER_ALSO_NON_MERGED_PRS: ${{ inputs.consider-also-non-merged-prs }}
