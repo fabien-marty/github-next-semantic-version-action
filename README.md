@@ -2,7 +2,13 @@
 
 ## What is it?
 
-This is a GitHub Action that provides the [github-next-semantic-version](https://github.com/fabien-marty/github-next-semantic-version) tool/feature inside a GHA Workflow.
+This is a GitHub Action that provides the [github-next-semantic-version](https://github.com/fabien-marty/github-next-semantic-version) tool/feature inside a GHA Workflow. This tool guess the next [semantic version](https://semver.org/)** from:
+
+- existing **git tags** *(read from a locally cloned git repository)*
+- and recently merged **pull-requests labels** *(read from the GitHub API)*
+
+Unlinke plenty of "similar" tools, we don't use any "commit message parsing" here but only 
+**configurable PR labels**.
 
 ## Usage
 
