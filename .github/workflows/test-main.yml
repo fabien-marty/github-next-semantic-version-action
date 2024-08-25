@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # we need this because fetch-tags=true and because of a GHA bug: https://github.com/actions/checkout/issues/1471
+          fetch-tags: true
+      - id: version
+        uses: fabien-marty/github-next-semantic-version-action@main
+        with:
+          github-token: ${{ github.token }} # Let's use the default value of the current workflow
+          repository: ${{ github.repository }} # Let's use the default value of the current workflow
+          repository-owner: ${{ github.repository_owner }} # Let's use the default value of the current workflow
+      - name: Use results
+        run: |
+          echo "### Latest version is ${{ steps.version.outputs.latest-version }}" >> ${GITHUB_STEP_SUMMARY}
+          echo "### Next version is ${{ steps.version.outputs.next-version }}" >> ${GITHUB_STEP_SUMMARY}
