@@ -6,7 +6,8 @@ docker: Dockerfile ## Build the docker image
 
 .PHONY: clean
 clean: ## Clean tmp files
-	rm -f github-next-semantic-version Dockerfile
+	rm -f github-next-semantic-version
+	touch Dockerfile.template
 
 .PHONY: no-dirty
 no-dirty: ## Check for git dirty files
