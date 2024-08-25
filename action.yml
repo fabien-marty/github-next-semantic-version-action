@@ -1,5 +1,8 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Next Semantic Version'
+description: 'Guess the next semantic version only from existing git tags and recently merged pull-requests labels.'
+branding:
+  icon: 'git-pull-request'
+  color: 'blue'
 inputs:
   github-token:
     description: "GitHub Token"
