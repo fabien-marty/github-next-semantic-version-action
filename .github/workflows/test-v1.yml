@@ -14,6 +14,8 @@ jobs:
       - id: version
         uses: fabien-marty/github-next-semantic-version-action@v1
         with:
+          log-level: DEBUG
+          dont-increment-if-no-pr: "true"
           github-token: ${{ github.token }} # Let's use the default value of the current workflow
           repository: ${{ github.repository }} # Let's use the default value of the current workflow
           repository-owner: ${{ github.repository_owner }} # Let's use the default value of the current workflow
