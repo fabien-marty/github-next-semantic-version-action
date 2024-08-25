@@ -17,9 +17,9 @@ This is a GitHub Action that provides the [github-next-semantic-version](https:/
   with:
     github-token: ${{ github.token }} # Let's use the default value of the current workflow
     repository: ${{ github.repository }} # Let's use the default value of the current workflow
-    repository-owner: ${{ github.repository-owner }} # Let's use the default value of the current workflow
+    repository-owner: ${{ github.repository_owner }} # Let's use the default value of the current workflow
 
-- run: Use results
+- name: Use results
   run: |
     echo "Latest version is ${{ steps.version.outputs.latest-version }}"
     echo "Next version is ${{ steps.version.outputs.next-version }}"
