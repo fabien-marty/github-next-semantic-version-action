@@ -1,9 +1,16 @@
 #!/bin/sh
 
-ARCH=${1:-linux-amd64}
+URL=$1
+if test "${URL}" = ""; then
+    echo "ERROR: missing URL"
+    exit 1
+fi
+echo "URL=${URL}"
+
+ARCH=${2:-linux-amd64}
 echo "ARCH=${ARCH}"
 
-LOCATION=$(curl -s https://api.github.com/repos/fabien-marty/github-next-semantic-version/releases/latest \
+LOCATION=$(curl -s "${URL}" \
 | grep "browser_download_url" \
 | grep "${ARCH}" \
 | grep -v "md5" \
