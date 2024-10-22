@@ -31,6 +31,15 @@ Unlinke plenty of "similar" tools, we don't use any "commit message parsing" her
     echo "Next version is ${{ steps.version.outputs.next-version }}"
 ```
 
+> [!NOTE]
+> In some configurations, you will also need to add this at the job level:
+> 
+> ```yaml
+> permissions:
+>   pull-requests: read
+>   contents: read
+> ```
+
 ### Outputs
 
 - `latest-version`: the latest version/tag
