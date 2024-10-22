@@ -56,3 +56,4 @@ Unlinke plenty of "similar" tools, we don't use any "commit message parsing" her
 - `ignore-labels`: coma separated list of PR labels to search for ignoring a PR (default to: `Type: Hidden`), can be useful with `dont-increment-if-no-pr` option
 - `dont-increment-if-no-pr`: Do not increment if no PR found (or only ignored PRs), default to `false`, can be useful to determine automatically if a release is needed
 - `consider-also-non-merged-prs`: If set to `true` (default to `false`), consider also "non merged" PRs to compute the next version
+- `tag-regex`: If set, filter tags with the given regex

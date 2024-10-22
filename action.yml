@@ -37,6 +37,10 @@ inputs:
     description: "Consider also non-merged PRs"
     required: false
     default: 'false'
+  tag-regex:
+    description: "Regex to match tags"
+    required: false
+    default: ''
 outputs:
   latest-version:
     description: 'Latest version'
@@ -55,3 +59,4 @@ runs:
     GNSV_IGNORE_LABELS: ${{ inputs.ignore-labels }}
     GNSV_DONT_INCREMENT_IF_NO_PR: ${{ inputs.dont-increment-if-no-pr }}
     GNSV_CONSIDER_ALSO_NON_MERGED_PRS: ${{ inputs.consider-also-non-merged-prs }}
+    GNSV_TAG_REGEX: ${{ inputs.tag-regex }}
