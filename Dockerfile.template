@@ -6,7 +6,7 @@ COPY download.sh /app/bin/
 # Download version {{ VERSION }}
 RUN mkdir -p /app/bin && \
     cd /app/bin && \
-    ./download.sh "{{ URL }}" && \
+    ./download.sh "{{ URL }}" github-next-semantic-version && \
     chmod +x github-next-semantic-version 
 
 COPY entrypoint.sh /
