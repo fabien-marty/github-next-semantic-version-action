@@ -37,4 +37,4 @@ if test "${LOCATION}" = ""; then
 fi
 
 echo "Downloading $LOCATION..."
-curl -L -o github-next-semantic-version "${LOCATION}"
+curl -L -o "${NAME}" "${LOCATION}"
